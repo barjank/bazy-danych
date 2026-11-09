@@ -1,0 +1,11 @@
+CREATE TABLE projekt(id_projektu INT PRIMARY KEY auto_increment, nazwa_projektu varchar(150) not null, data_rozpoczecia date not null, data_zakonczenia date);
+ALTER TABLE projekt ADD menedzer_projektu INT;
+ALTER TABLE projekt ADD FOREIGN KEY(menedzer_projektu) REFERENCES pracownik(id_pracownika);
+SELECT * FROM projekt;
+INSERT INTO projekt(id_projektu, nazwa_projektu, data_rozpoczecia, menedzer_projektu) VALUES ('1','erasmus','590-3-14','2');
+INSERT INTO projekt(nazwa_projektu, data_rozpoczecia, data_zakonczenia, menedzer_projektu) VALUES ('sprzatanie','2026-4-30','2026-7-23','3');
+ALTER TABLE zadanie ADD projekt INT;
+ALTER TABLE zadanie ADD FOREIGN KEY(projekt) REFERENCES projekt(id_projektu) ON DELETE CASCADE;
+SELECT * FROM zadanie;
+UPDATE zadanie SET projekt = 2 WHERE id_zadania = 1;
+UPDATE zadanie SET projekt = 1 WHERE id_zadania = 2;

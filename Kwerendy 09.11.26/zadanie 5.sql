@@ -1,0 +1,15 @@
+CREaTE TABLE status(id_statusu int primary key auto_increment, nazwa_statusu varchar(20));
+insert into status values ('1','wykonany');
+insert into status values ('2','niewykonany');
+insert into status values ('3','w trakcie');
+create table zadanie_has_status(id_zdarzenia int primary key auto_increment, id_zadania int, id_statusu int, data_zdarzenia datetime default current_timestamp);
+alter table zadanie_has_status add foreign key(id_zadania) references zadanie(id_zadania);
+alter table zadanie_has_status add foreign key(id_statusu) references status(id_statusu);
+select * from zadanie_has_status;
+insert into zadanie_has_status(id_zadania, id_statusu) values ('1','2');
+insert into zadanie_has_status(id_zadania, id_statusu) values ('2','3');
+insert into zadanie_has_status(id_zadania, id_statusu) values ('2','1');
+select * from projekt;
+select * from zadanie;
+delete from projekt where id_projektu = 1;
+drop table sprint;
