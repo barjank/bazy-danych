@@ -12,4 +12,5 @@ insert into zadanie_has_status(id_zadania, id_statusu) values ('2','1');
 select * from projekt;
 select * from zadanie;
 delete from projekt where id_projektu = 1;
+alter table zadanie drop foreign key zadanie_ibfk_3;
 drop table sprint;
